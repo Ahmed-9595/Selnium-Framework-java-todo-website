@@ -6,12 +6,16 @@ import Pages.Login;
 import Pages.Newtodopage;
 import Pages.Todopage;
 import Bases.TestsBase;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+@Feature("Todo Feature")
 
 public class TodopageTest extends TestsBase {
     Login login;
-    @Test
+    @Story("Add Todo")
+    @Test (description = "Should be able to add a new todo correctly")
     public void AddToDoItem() throws InterruptedException{
         RegisterApi registerApi=new RegisterApi();
         registerApi.register();
@@ -24,7 +28,8 @@ public class TodopageTest extends TestsBase {
         Assert.assertEquals("Learn Selenium",Expected);
 
     }
-@Test
+    @Story("Delete Todo")
+    @Test (description = "Should be able to delete a todo correctly")
     public void DeleteToDoItem() throws InterruptedException{
     RegisterApi registerApi=new RegisterApi();
     registerApi.register();

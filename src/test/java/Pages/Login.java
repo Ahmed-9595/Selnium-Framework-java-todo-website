@@ -2,6 +2,7 @@ package Pages;
 
 import Bases.PageBase;
 import Utils.ConfigUtils;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,11 +19,12 @@ public class Login extends PageBase {
     @FindBy(xpath = "//button[@data-testid=\"submit\"]")
     private WebElement Submit;
 
-
+    @Step("Load the login page")
     public Login load(){
         driver.get(ConfigUtils.getInstance().getbaseUrl());
         return this;
     }
+    @Step
     public Todopage ValidLogin(String Email, String Password) throws InterruptedException{
         Mail.sendKeys(Email);
         Pass.sendKeys(Password);
